@@ -1,0 +1,23 @@
+<tr>
+  <td><%= t("filename") %>:</td>
+  <td><%= f.file_field :attachment %></td>
+</tr>
+<tr>
+  <td><%= t("alt_text") %>:</td>
+  <td><%= f.text_area :alt %></td>
+</tr>
+<% if @product.has_variants? %>
+  <tr>
+    <td><%= t("shares_description") %></td>
+    <td>
+      <table class="index">
+        <tr>
+          <th><%= Variant.human_name.pluralize %></th>
+        </tr>
+        <%= render "assets_shares" %>
+      </table>
+    </td>
+  </tr>
+<% else %>
+  <%= hidden_field_tag :product_id, @product.id %>
+<% end %>
