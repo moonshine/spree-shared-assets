@@ -20,6 +20,7 @@ class SharedAssetsExtension < Spree::Extension
     Product.send(:include, Spree::SharedAssets::Product)
     Variant.send(:include, Spree::SharedAssets::Variant)
 
+    # Override controller methods
     Admin::ImagesController.send(:include, Spree::SharedAssets::Admin::ImagesController)
   end
 end

@@ -1,8 +1,8 @@
 <tr>
   <td>
-    <%= check_box_tag "image[shareable_id]", 'All',
+    <%= check_box_tag "image[shareable_id]", 'Product',
       @image.products.include?(@product) %>
-    &nbsp;All
+    &nbsp;Product
   </td>
 </tr>
 <% for variant in @product.variants %>

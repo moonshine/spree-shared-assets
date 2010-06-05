@@ -12,20 +12,20 @@ module Spree::SharedAssets::Admin::ImagesController
       end
 
       def set_viewable
-        # Check if "All" option was selected
+        # Check if "Product" option was selected
         if params[:image].has_key?(:shareable_id) && !params[:image][:shareable_id].blank?
           # Assign to product
           object.products << @product unless object.products.include?(@product)
           params[:image].delete(:shareable_id)
         else
-          # "All" option not selected
+          # "Product" option not selected
 
-          # Check if at least one variant selected, if not assign to "All"
+          # Check if at least one variant selected, if not assign to "Product"
           variant_ids = params[:image][:variant_ids].detect {|i| !i.blank?}
           unless variant_ids
             object.products << @product unless object.products.include?(@product)
           else
-            # "All" option not selected, delete if it exists
+            # "Product" option not selected, delete if it exists
             shares = object.assets_shares.find_all_by_shareable_type('Product')
             shares.each{|s| s.destroy if s.shareable_id == @product.id} if shares.size > 0
           end
