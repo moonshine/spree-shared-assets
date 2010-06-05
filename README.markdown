@@ -4,7 +4,7 @@ This Spree extension creates a many to many relationship between assets and vari
 you to share images between variants. By default Spree assigns an image to the product or a
 single variant, this means that if you have 6 variants that have the same images you will need
 to store the images 6 times once for each variant. This extension allows you to only store an
-image once and share that images with the product and any variants.
+image once and share that image with the product and any variants.
 
 ## Usage
 
