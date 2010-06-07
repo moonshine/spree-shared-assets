@@ -13,10 +13,10 @@ module Spree::SharedAssets::Admin::ImagesController
 
       def set_viewable
         # Check if "Product" option was selected
-        if params[:image].has_key?(:shareable_id) && !params[:image][:shareable_id].blank?
+        if params[:shareable_id] && !params[:shareable_id].blank?
           # Assign to product
           object.products << @product unless object.products.include?(@product)
-          params[:image].delete(:shareable_id)
+          params.delete(:shareable_id)
         else
           # "Product" option not selected
 

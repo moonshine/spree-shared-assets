@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= check_box_tag "image[shareable_id]", 'Product',
+    <%= check_box_tag "shareable_id", @product.id,
       @image.products.include?(@product) %>
     &nbsp;Product
   </td>
